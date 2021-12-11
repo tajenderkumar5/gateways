@@ -16,6 +16,7 @@ import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # Quick-start development settings - unsuitable for production
@@ -81,7 +82,7 @@ WSGI_APPLICATION = 'razorpay.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
@@ -121,6 +122,8 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
+
+
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
@@ -135,5 +138,4 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STRIPE_SECRET_KEY = 'sk_test_51K4OxRSHFaEXYBGZlxDm9MD9hDlRrjhkR362HBjxWrfjzyisj4reoAjzDPhrnTMhBNqrGTl8Opm5YW7Zoc3XbL3800QdbH5iu5'
-STRIPE_PUBLISHABLE_KEY = 'pk_test_51K4OxRSHFaEXYBGZygPPNrjURGRaaaS6UJlyXCjO1zIUlSV5zILk6h4Viqa4T31KB7e3ma0PQ8WwLmrzJ6RVwuDC00RCeBtS5g''
 STRIPE_PUBLISHABLE_KEY = 'pk_test_51K4OxRSHFaEXYBGZygPPNrjURGRaaaS6UJlyXCjO1zIUlSV5zILk6h4Viqa4T31KB7e3ma0PQ8WwLmrzJ6RVwuDC00RCeBtS5g'
