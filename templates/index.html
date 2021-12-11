@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<head>
+    <style>
+        .center {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+
+<div class="center">
+<form class="text-center border border-light p-5" action="sucess/" method="POST">
+
+{% csrf_token %}
+
+    <p class="h3 mb-3">
+    <i class="fas fa-coffee"></i> PLEASE DONATE FOR POOR CHILDRENS
+    </p>
+
+    <p class="mb-3">
+    Help us by donating 500 INR
+    </p>
+
+<input type="name" name="name" id="name" required class="form-control mb-4" placeholder="Name">
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"
+    data-key="rzp_test_qJYq5tt1a08hAk"
+    data-amount="50000"
+    data-currency="INR"
+    data-order_id="{{payment.id}}"
+    data-buttontext="Pay with Razorpay"
+    data-name="Professional Cipher"
+    data-description="Django and Data Science"
+    data-image="https://example.com/your_logo.jpg"
+    data-prefill.name="nope"
+    data-prefill.email="tajender@5gmail.com"
+    data-theme.color="#F37254">
+</script>
+
+<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="pk_test_51K4OxRSHFaEXYBGZygPPNrjURGRaaaS6UJlyXCjO1zIUlSV5zILk6h4Viqa4T31KB7e3ma0PQ8WwLmrzJ6RVwuDC00RCeBtS5g"
+    data-description="A Django Charge"
+    data-amount="5000"
+    data-currency="INR"
+    data-locale="auto">    
+</script>
+</form>
+</div>
+</div>
+{% endblock %}
