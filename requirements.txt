@@ -3,7 +3,9 @@ certifi==2021.10.8
 charset-normalizer==2.0.9
 Django==4.0
 gunicorn==20.1.0
+heroku==0.1.4
 idna==3.3
+python-dateutil==1.5
 razorpay==1.2.0
 requests==2.26.0
 sqlparse==0.4.2
